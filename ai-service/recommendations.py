@@ -1,10 +1,16 @@
 # recommendations.py
 
+import os
+from dotenv import load_dotenv
 import requests
 from collections import Counter
 from functools import lru_cache
 
-API_KEY = "***REMOVED***"
+# Загружаем переменные окружения из файла .env
+load_dotenv()
+
+# Безопасно получаем ключ TMDB из переменных окружения
+API_KEY = os.getenv("TMDB_API_KEY")
 
 def get_user_favorites(user_id):
     """Получаем избранные фильмы и сериалы пользователя через API."""
