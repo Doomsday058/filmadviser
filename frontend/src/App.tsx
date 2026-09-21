@@ -48,7 +48,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Router>
+    // Приложение живёт в подпапке GitHub Pages (/filmadviser), без basename маршруты не совпадают
+    <Router basename={process.env.PUBLIC_URL}>
       <UserProvider userId={userId} setUserId={setUserId}>
         <div className="App">
           <header className="App-header">

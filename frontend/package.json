@@ -1,7 +1,7 @@
 {
   "name": "rip2",
   "version": "0.1.0",
-  "homepage": "https://doomsday058.github.io/online-cinema-frontend",
+  "homepage": "https://doomsday058.github.io/filmadviser",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

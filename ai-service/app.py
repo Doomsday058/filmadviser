@@ -17,6 +17,8 @@ load_dotenv()
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 NODE_API_URL = os.getenv("NODE_API_URL")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# gpt-3.5-turbo-0125 сняли с поддержки, поиск на нём отвечал 500
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 app = Flask(__name__)
 CORS(app, origins=["https://doomsday058.github.io"], supports_credentials=True)
@@ -30,7 +32,7 @@ GENRE_MAP = {
     "ужасы": "27", "криминал": "80", "фантастика": "878", "мелодрама": "10749"
 }
 
-def get_gpt_response(messages, model="gpt-4o-mini", json_mode=False):
+def get_gpt_response(messages, model=OPENAI_MODEL, json_mode=False):
     """Обертка для вызова GPT с обработкой ошибок."""
     try:
         kwargs = {
@@ -122,7 +124,7 @@ def advanced_search():
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": query}
         ],
-        model="gpt-3.5-turbo-0125", 
+        model=OPENAI_MODEL,
         json_mode=True
     )
 

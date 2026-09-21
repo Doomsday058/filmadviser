@@ -76,19 +76,6 @@ const Favorite = sequelize.define('favorite', {
   ]
 });
 
-
-// Маршрут для получения списка пользователей
-app.get("/api/users", async (req, res) => {
-  try {
-    const users = await User.findAll();
-    res.status(200).json(users);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-// Добавьте этот маршрут перед маршрутом запуска сервера
-
 // Маршрут для получения данных пользователя
 app.get("/api/users/:id", async (req, res) => {
   const { id } = req.params;
