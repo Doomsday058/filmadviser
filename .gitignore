@@ -1,0 +1,9 @@
+node_modules/
+build/
+.env
+__pycache__/
+*.pyc
+venv/
+.idea/
+*.iml
+.DS_Store
