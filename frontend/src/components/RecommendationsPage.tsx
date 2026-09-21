@@ -64,6 +64,16 @@ const RecommendationsPage: React.FC = () => {
     setPage(nextPage);
   };
 
+  // Рекомендации строятся по избранному: без входа загружать нечего, а лоадер крутился бы вечно
+  if (!userId) {
+    return (
+      <div className="card-list" style={{ textAlign: 'center', padding: '40px 16px' }}>
+        <p>Войдите и добавьте фильмы в избранное — здесь появятся рекомендации по вашим вкусам.</p>
+        <p>А пока загляните в разделы FILMS и SERIALS.</p>
+      </div>
+    );
+  }
+
   return (
     <InfiniteScroll
       dataLength={recommendations.length}
