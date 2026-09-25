@@ -10,7 +10,7 @@ const API_KEY = process.env.TMDB_API_KEY;
 
 const allowedOrigins = [
   'http://localhost:3000', // Для локальной разработки
-  'https://doomsday058.github.io' // Твой задеплоенный фронтенд
+  'https://doomsdayoff.github.io' // Твой задеплоенный фронтенд
 ];
 
 app.use(cors({
